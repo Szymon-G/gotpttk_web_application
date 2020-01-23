@@ -1,0 +1,83 @@
+{% block body %}
+	<div class="overlay "></div>
+	<div class="box__alert">
+		{% if type == 'calendar' %}
+			<p class="box__alert__title">Podaj datę odbycia wycieczki</p>
+			<form class="box__alert__form" action="./createTrail_check" method="POST">
+				<input type="date" name="date" id="date" >
+				<a class="form__err" name="dateErr"
+					style="visibility: {% for message in app.flashes('date') %}
+					{{message}}{% endfor %};">Powyższe pole jest wymagane aby kontynuować</a>
+				<input class="button box__alert__button" type="submit" value='Dalej'>
+			</form>
+		{% endif %}
+		{% if type == 'alert_back' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Czy na pewno chcesz wyjść z ekranu dodawania trasy?</div>
+			<div class="box__alert__buttons">
+				<form action="./trailsList">
+					<button class="button box__alert__button">TAK</button>
+				</form>
+				<button id="back_btn_back" class="button box__alert__button">NIE</button>
+			</div>
+		{% endif %}
+		{% if type == 'alert_success' %}
+			<p class="box__alert__title">SUKCES</p>
+			<div class="box__alert__message">Trasa została dodana pomyślnie</div>
+			<div class="box__alert__buttons">
+				<form action="./trailsList">
+					<button class="button box__alert__button">OK</button>
+				</form>
+			</div>
+		{% endif %}
+		{% if type == 'alert_failure' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Trasa nie jest poprawna</div>
+			<div class="box__alert__buttons">
+				<button id="back_btn_back" class="button box__alert__button">Zamknij</button>
+			</div>
+		{% endif %}
+		{% if type == 'alert_no_sections' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Trasa nie posiada odcinków.<br>Dodaj minimum 1 odcinek do swojej trasy.</div>
+			<div class="box__alert__buttons">
+				<button id="back_btn_back" class="button box__alert__button">Zamknij</button>
+			</div>
+		{% endif %}
+		{% if type == 'alert_log_to_save' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Zaloguj się aby móc zapisać swoją trasę w bazie</div>
+			<div class="box__alert__buttons">
+				<form action="./login">
+					<button class="button box__alert__button">Zaloguj się</button>
+				</form>
+				<button id="back_btn_back" class="button box__alert__button">Zamknij</button>
+			</div>
+		{% endif %}
+		{% if type == 'alert_empty_fields' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Wypełnienie wszystkich pól formularza jest wymagane w celu poprawnego zapisania trasy</div>
+			<div class="box__alert__buttons">
+				<button id="back_btn_back" class="button box__alert__button">Zamknij</button>
+			</div>
+		{% endif %}
+		{% if type == 'alert_cancel' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Zmiany zostały odrzucone</div>
+			<div class="box__alert__buttons">
+				<form action="./trailsList">
+						<button class="button box__alert__button">Zamknij</button>
+				</form>
+			</div>
+		{% endif %}
+		{% if type == 'alert_success_modify' %}
+			<p class="box__alert__title">UWAGA</p>
+			<div class="box__alert__message">Trasa została zmodyfikowana</div>
+			<div class="box__alert__buttons">
+				<form action="./trailsList">
+						<button class="button box__alert__button">Zamknij</button>
+				</form>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

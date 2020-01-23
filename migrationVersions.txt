@@ -1,0 +1,3 @@
+current migration versions are:
+creating db - 20200109180645
+inserting values - 20200109180709

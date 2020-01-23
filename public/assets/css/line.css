@@ -1,0 +1,9 @@
+.line {
+  display: block;
+  height: 3px;
+  width: 90%;
+  border: 0;
+  border-top: 3px solid var(--second_color);
+  margin: 2% 6%;
+  padding: 0;
+}

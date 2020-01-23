@@ -1,0 +1,53 @@
+@import "consts.css";
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white_with_alpha);
+  padding: 2% 0;
+}
+
+.box__book__button{
+  font-size: 0.7em;
+  margin-left: 3%;
+}
+
+.box__book{
+  width: 95%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+.box__userdata{
+  width: 100%;  
+  height: 200px;
+  margin: 0 3%;
+  text-align: left;
+  color: black;
+}
+
+img{
+    width: 150px;
+    height: 192px;
+}  
+
+a.black{
+    color: black;
+    font-size: small;
+    padding-left: 17px;
+    padding-right: 17px;
+}

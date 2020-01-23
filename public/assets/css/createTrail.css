@@ -1,0 +1,137 @@
+@import "consts.css";
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white_with_alpha);
+  padding: 1% 0;
+}
+
+.box__nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.box__nav__button{
+  background-color: var(--second_color);
+  font-size: 0.7em;
+}
+
+.box__nav__button:first-child {
+  margin-right: 0;
+}
+
+.box__button{
+  padding: 8px 30px;
+  font-size: 1.1em;
+}
+
+.box__trail{
+  width: 100%;  
+  min-height: 200px;
+  margin: 3% 0;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.box__trail__content{
+  grid-column: 1/5;
+  color: var(--black);
+}
+
+.box__trail__grid{
+  width: 95%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  color: var(--black);
+}
+
+.box__trail__row {
+  display: grid;
+  grid-template-columns: 70% 8% 17% 5%;
+  grid-column: 1 / 5;
+  font-size: .8em;
+  margin: 4px 0;
+}
+
+.box__trail__row:nth-child(2){
+  padding-top: 10px;
+}
+
+.box__trail__row--header {
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.box__trail__row>div:last-child {
+  justify-self: end;
+}
+
+.box__trail__row > div:first-child {
+  justify-self: start;
+  text-align: left;
+}
+
+.box__trail__row__delete_btn{
+  position: relative;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.box__trail__row__delete_btn:focus{
+  outline: none;
+}
+
+#cross {
+  background: red;
+  height: 16px;
+  width: 4px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-100%) rotate(45deg);
+}
+
+ #cross:after {
+  background: red;
+  content: "";
+  height: 16px;
+  width: 4px;
+  position: absolute;
+  transform: translateX(-50%) rotate(90deg)
+}  
+
+.box__trail__grid__sum{
+  grid-column: 3/4;
+  font-size: .9em;
+  font-weight: bold;
+  justify-self: end;
+}
+
+.form{
+  margin: 10px 0;
+  padding: 10px;
+}
+
+a.form__err {
+  visibility: hidden;
+  font-weight: bold;
+  padding-top: 4px;
+  color: red;
+}
+
+

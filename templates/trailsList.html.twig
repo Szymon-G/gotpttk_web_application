@@ -1,0 +1,64 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/trailsList.css') }}" rel="stylesheet">
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+{% endblock %}
+{% block body %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Twoje trasy</h3>
+			<div class="box">
+				<div class="box__nav">
+					<a class="link button box__nav__button" href='./createTrail'>Dodaj trasę</a>
+				</div>
+				{% if allTrails %}
+					{% set i=0 %}
+					{% for trail in allTrails %}
+						<div class="box__trail">
+							<div class="box__trail__grid">
+								<div class="box__trail__row box__trail__row--header">
+									<div>{{trails[i].getTrailDateString}}</div>
+									<div>Punkty</div>
+									<div>Grupa górska</div>
+								</div>
+								{% set sumOfPoints = 0 %}
+									{% for section in trail %}
+										<div class="box__trail__row">
+											<div>{{section.getStartPoint.getName}} - {{section.getEndPoint.getName}}</div>
+											<div>{{section.getPointsGOT}}</div> 
+											{% set sumOfPoints = sumOfPoints + section.getPointsGOT %}
+											<div>{{section.getIdG.getName}} {{section.getIdG.getGroupCode}}</div>
+										</div>
+									{% endfor %}
+								<div class="box__trail__row__empty"></div>
+								<div class="box__trail__row">
+									<a class="sum">Suma punktów: {{sumOfPoints}}</a>
+									<form action="./modifyTrail" method="POST">
+											<input type="hidden" value={{trails[i].getIdT}} name="modifyTrailId"/>
+											<button class="link button box__nav__button" href=''>Modyfikuj trasę</button>
+									</form>
+									<form action="./Delete" method="POST">
+											<input type="hidden" value={{trails[i].getIdT}} name="deleteTrailId"/>
+											<button class="link button box__button" href='' disabled>Usuń trasę</button>
+									</form>
+								</div>
+							</div>
+						</div>
+						{% set i = i+1 %}
+					{% endfor %}
+				{% else %}
+					{<p class="box__trail__content">Ups.. wygląda na to że nie dodałeś jeszcze żadnej trasy</p>
+				{% endif %}
+				<a class="link button box__button" href="./book">Powrót</a>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}

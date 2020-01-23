@@ -1,0 +1,53 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/line.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/findSection.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/addSection.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Przeglądaj odcinki</h3>
+			<button class="button form__input__btn">
+				<a href="./addSection" class="link">Powrót</a>
+			</button>
+			<div class="box">
+				<div class="box__zone">
+					<p class="box__zone__name">{{mountainGroup.name}}</p>
+					{{mountainGroup.groupCode}}</p>
+				<span class="line"></span>
+				{% for key, endPoint in endPoints %}
+					<div class="box__section">
+						<p class="box__section_begin">
+						{{endPoint.getEndPointName()}}
+					</p>
+					<span class="line"></span>
+					{% for startPoint in startPoints[key] %}
+						<div class="box__section__row">
+							<div class="box__section__row__end">z
+								{{ startPoint.getStartPointName() }}</div>
+							<div class="box__section__row__points">{{ startPoint.pointsGOT }}</div>
+							<div>
+								<form action="./createTrail" method="POST" class="box__section__row__form">
+									<input type="hidden" value={{startPoint.getIdS()}} name="idS"/>
+									<input type="submit" class="button box__section__row__btn" value="Dodaj"/>
+								</form>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endfor %}
+		</div>
+		</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}

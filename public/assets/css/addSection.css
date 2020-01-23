@@ -1,0 +1,46 @@
+@import "consts.css";
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box__section{
+  font-style: italic;
+  font-size: .9em;
+  margin-bottom: 3%;
+}
+
+.box__section_begin,
+.box__section__row__end {
+  margin: 0;
+  text-align: start;
+  margin-left: 6%;
+}
+
+.box__section__row {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  width: 80%;
+  margin: 0 auto;
+  font-size: .85em;
+  margin-bottom: 1%;
+}
+
+.box__section__row__btn{
+  padding: 5px 30px;
+  background-color: var(--second_color);
+  font-size: .9em;
+}
+
+.box__results{
+  margin-bottom: 20px;
+}
+
+.result__button{
+  margin: 10px;
+  padding: 10px 30px;
+}

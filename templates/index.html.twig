@@ -1,73 +1,37 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<meta charset="UTF-8">
-		<meta name="description" content="GOT PTTK (Górska Odznaka Turystyczna Polskiego Towarzystwa Tusrytycznp-Krajoznawczego) application for tourists">
-		<meta name="keywords" content="tour, mountains, trekking">
-		<meta name="author" content="Michał Wiczk, Szymon Gąsior">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-		<title>
-			{% block title %}GOT PTTK
-			{% endblock %}
-		</title>
-		{% block stylesheets %}
-			<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
-			<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+<html lang="pl-PL">
+	<meta charset="UTF-8">
+	<meta charset="UTF-8">
+	<meta name="description" content="GOT PTTK (Górska Odznaka Turystyczna Polskiego Towarzystwa Tusrytycznp-Krajoznawczego) application for tourists">
+	<meta name="keywords" content="tour, mountains, trekking">
+	<meta name="author" content="Michał Wiczk, Szymon Gąsior">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>
+		{% block title %}GOT PTTK
 		{% endblock %}
-	</head>
-	<body>
-		{% block body %}
-			{{ include('header.html.twig') }}
-			<div class="container">
-				{# here we can put some ours views/twig templates #}
-				<div class="content">
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis delectus a dignissimos, animi fuga, consectetur voluptate at ex officiis sed, eos accusamus laboriosam? Laudantium corrupti fugiat aliquid molestiae voluptatem ipsum.
-				Est in ut facere recusandae dignissimos corrupti, quod, commodi eos mollitia sapiente aspernatur molestias quos non fugiat culpa nobis exercitationem impedit sequi maxime ea. Accusamus alias officiis ducimus facere nihil.
-				Molestias repellat iure facere enim consequuntur repudiandae eius quod, voluptatem, obcaecati commodi, sapiente tenetur quidem. Ipsam ad nisi excepturi cupiditate, inventore praesentium at itaque, numquam asperiores dolores, nobis similique minus.
-				Quis molestiae culpa sint adipisci dignissimos, sequi hic a maiores cupiditate accusantium, explicabo optio! Ut debitis voluptatum, unde ipsam, officia, alias earum totam nemo tempore error quidem voluptates! Suscipit, optio.
-				Natus expedita corporis magnam? Dolores ab quod nemo tempore vitae cumque aspernatur in dolorem sunt quo sed accusantium quibusdam non esse quae repellendus, cupiditate amet nulla quaerat soluta cum ut?
-				Accusantium iure, culpa neque totam fugit necessitatibus, dolores obcaecati quasi expedita animi ad enim tempore praesentium aliquid fuga ab voluptatum, esse atque illum beatae pariatur excepturi quae? Similique, sint distinctio!
-				Delectus dolorum repellendus ea nesciunt, porro molestias quibusdam esse temporibus molestiae. Debitis obcaecati eos id ut fugiat voluptatum est animi! Ad dolor voluptatem atque expedita a. Maiores tenetur molestias illum.
-				Praesentium excepturi doloremque tempora optio delectus repudiandae ipsum! Expedita consectetur saepe dicta illum a facilis doloribus provident ipsum. Itaque doloribus cumque numquam quod officiis pariatur exercitationem odit, nisi quasi adipisci!
-				Sed ipsam vero nemo at. Perferendis error nisi officia dignissimos labore delectus reprehenderit quisquam dolores deserunt, doloribus aliquid ut cumque autem soluta facere modi enim numquam quibusdam necessitatibus ipsa eligendi.
-				Libero fugiat accusantium id maiores aliquid nesciunt eveniet, quam ratione sint minus quo nisi itaque facilis reprehenderit placeat nihil sunt, alias, deserunt quisquam ullam laudantium voluptate architecto impedit? Beatae, quaerat?
-				Qui cumque reprehenderit aperiam modi labore ratione tempora saepe quaerat vero amet error, cum explicabo deserunt dolorem consectetur laboriosam ex quia assumenda hic debitis. Aut odit ipsa nihil. Nulla, modi.
-				Illum voluptatem sint corrupti veritatis. Quam animi quod repellendus eligendi odit asperiores perspiciatis, deserunt id eum impedit adipisci sequi recusandae eaque distinctio quidem rerum consequuntur dolor repudiandae aut aliquam ad?
-				Modi sunt optio at nam? Autem, aliquid fuga eos dolorum enim aut expedita labore? Enim nihil, ullam incidunt delectus temporibus expedita illo quisquam nobis. Nostrum cum deserunt quibusdam nihil fugiat?
-				Hic accusantium quaerat magni consequuntur asperiores numquam error rem sint ab neque atque voluptates aliquid obcaecati excepturi culpa amet accusamus maxime, itaque iste at quos? Numquam nulla quasi omnis deleniti!
-				Tempora quam inventore est nemo minus, accusamus cupiditate perspiciatis iusto, fuga quia facere error? Accusamus deleniti velit at quaerat quas assumenda consequuntur, dicta recusandae consectetur minima perspiciatis, dolore ea atque.
-				Aut quo totam sapiente unde recusandae earum et deserunt corrupti repudiandae, itaque, ipsam, nesciunt eum. Odit amet, mollitia unde alias beatae placeat quia optio cum tempora inventore. Voluptatibus, cumque laboriosam.
-				Quaerat eaque blanditiis ex perferendis, architecto natus omnis ab ullam modi. Qui adipisci reiciendis delectus consequatur error, inventore modi sint expedita eveniet ut labore aspernatur alias harum nulla quidem repellat?
-				Quam in corrupti inventore nemo, velit sapiente dolor amet vitae illo molestias distinctio error cupiditate, tempora perferendis beatae fugiat consequatur consequuntur eveniet! Aliquam perspiciatis in, odit pariatur rerum aperiam beatae?
-				Voluptatibus doloremque velit natus vel voluptatem quo alias animi corporis magni voluptate dolorum harum beatae eveniet iure totam cum iste, similique eligendi itaque enim! Quia veniam modi consequatur dicta earum!
-				Velit voluptatibus soluta corrupti eligendi asperiores laudantium dolor animi quod est pariatur? Laudantium recusandae ullam rem aliquam odit in minima quod soluta nemo. Atque quibusdam assumenda at quas, rerum ex!
-				Exercitationem, ipsum accusamus maxime, expedita ex nemo laborum magni delectus omnis qui, doloribus itaque. Corporis, voluptate. Et enim illum quos quod aliquid labore maiores ducimus porro dolores eligendi. Consectetur, perferendis.
-				Nesciunt culpa corporis, rem quisquam iure explicabo. In consequatur minus nam est nihil asperiores neque voluptas officiis, ipsa commodi dicta ratione omnis saepe assumenda voluptates. Accusamus quae totam eos repellat.
-				Accusantium quidem labore iure ea, quod, eos repellendus laborum temporibus vero beatae quis obcaecati fuga eum magnam aliquid cupiditate provident soluta vel a dolorum? Facere blanditiis rerum reiciendis pariatur sint.
-				Expedita, corporis libero. Aliquam deleniti praesentium ex neque ut. Impedit ab explicabo at iste doloremque sint pariatur? Expedita adipisci dolore possimus aspernatur veniam, quo, illum eum dignissimos voluptates eius hic!
-				Voluptatem maxime alias veniam quibusdam illum laboriosam animi nisi ea libero ad magnam provident fugiat quisquam odio consectetur, voluptate debitis eum ipsa necessitatibus eligendi sint quia natus molestias? Exercitationem, quasi?
-				Ipsam vero molestiae necessitatibus consectetur excepturi soluta quas quae quasi nostrum rerum, numquam eaque laboriosam reprehenderit placeat voluptates culpa asperiores, nulla nobis modi consequuntur. Earum quisquam aut nobis praesentium neque.
-				Quisquam laborum quis id explicabo illum qui porro deleniti dolore quaerat, nobis doloribus nam commodi! Laborum rem eveniet fuga vel veritatis dolorem porro consequuntur sint numquam, tenetur officiis ad adipisci.
-				Nihil, repellendus natus dolorem obcaecati suscipit adipisci praesentium non sed dolorum voluptatem vitae tempore animi iste excepturi ea. Exercitationem pariatur autem maiores dolor eum quibusdam unde aperiam ipsam, iure voluptates!
-				Illo rem repellendus consequatur ducimus ex doloribus, iste dignissimos, magni quidem numquam deserunt assumenda nesciunt modi. Ea sequi, consectetur consequuntur totam inventore iusto rerum numquam sed, placeat ipsum, vero exercitationem?
-				Omnis reiciendis labore, perferendis dolorum saepe porro voluptas dignissimos, veniam soluta dolore molestias illum cupiditate. Culpa reiciendis quisquam deleniti omnis est quis veniam maiores ratione, eaque fugit officiis, distinctio modi.
-				Recusandae quaerat neque ipsam saepe atque fugiat, architecto omnis vel porro officia provident ex animi debitis dolores deleniti incidunt quis natus eaque eveniet ut? Unde officiis animi deserunt repellat adipisci.
-				Cupiditate voluptates ratione quisquam maiores, optio enim, necessitatibus fugiat earum repellat ad laborum inventore nulla expedita doloremque, sint aliquam sequi? Itaque corrupti illum esse vero culpa illo error atque molestiae!
-				Molestias tempore labore provident rem voluptatem nam animi pariatur, id a temporibus? Minima eius soluta sit in praesentium alias ea repellat, quae tempore et corporis libero vero dicta quisquam provident!
-				Veritatis ipsam labore quod! Tenetur, fugit unde blanditiis nobis error veniam voluptatem qui eligendi mollitia, itaque quis deleniti incidunt obcaecati quibusdam fuga odio inventore magnam repellat. Ullam molestias quod nesciunt!
-				Cupiditate, rerum ipsum. Tempora beatae quam adipisci itaque iure. Repellendus adipisci facere quidem. Consequuntur sunt, magnam magni voluptates voluptatibus assumenda est, nisi consequatur repellendus optio cumque et debitis! Quas, quidem.
-				Quidem excepturi aspernatur ut, nisi nulla impedit libero laboriosam voluptate illo voluptatem unde earum voluptas rerum tempore iure quo! Enim quas odit at obcaecati! Repellat, possimus? Inventore possimus culpa corrupti?
-				Nam eligendi voluptates blanditiis rerum quod perferendis amet, ex eaque animi officia dolores sed eius tenetur at. Impedit, maxime asperiores fugit eos maiores laboriosam ipsa, natus tenetur, dolores culpa reiciendis?
-				Consequuntur quam veniam dolor distinctio accusamus labore, rem reiciendis quod, delectus perspiciatis sint mollitia. Voluptas, aut sed optio tempora cupiditate omnis impedit illo repudiandae amet, blanditiis quos, sunt molestiae minus!
-				Tempore delectus laudantium quo consequatur numquam, dolorem tempora soluta necessitatibus. Sapiente labore voluptate assumenda aliquam aperiam, laudantium aut omnis natus, unde sunt, maxime corrupti a non minima ad rem provident.
-				Dolore dicta corrupti consequuntur laudantium itaque impedit quod doloremque alias neque tenetur quae unde provident, officiis reprehenderit quaerat voluptatibus repellat. Doloribus harum iste, magni voluptatem maxime impedit quam provident cum.
-			</p>
+	</title>
+	{% block stylesheets %}
+		<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+		<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	{% endblock %}
+</html><body>
+{% block body %}
+{% if logged %}
+	{{ include('headerTourist.html.twig') }}
+{% else %}
+	{{ include('header.html.twig') }}
+{% endif %}
+	<div
+		class="container">
+		{# here we can put some ours views/twig templates #}
+		<div class="content">
+			<div class="content__box">
+				<p>Aplikacja dla miłośników gór</p>
+				<p>Zapraszamy :)</p>
 			</div>
-			</div>
-			{{ include('footer.html.twig') }}
-		{% endblock %}
-		{% block javascripts %}{% endblock %}
-	</body>
-</html>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}{% endblock %}</body></html>

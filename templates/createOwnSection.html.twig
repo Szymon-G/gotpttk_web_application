@@ -1,0 +1,68 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/line.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/createOwnSection.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/alert.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	{% if alertEmptyFields is defined %}
+		<div class="alert_empty_fields">
+			{% include('alert.html.twig') with {'type':'alert_empty_fields'} %}
+		</div>
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Dodaj własny odcinek</h3>
+			<div class="box">
+				<h3 class="box__title">Odcinek</h3>
+				<div class="line"></div>
+				<form action="createOwnSection" method="POST" class="form">
+					<div class="form__part">
+						<label for="section_begin" class="form__label">Nazwa punktu początkowego</label>
+						<input type="text" name="section_begin" class="button form__input" pattern="(?=.*[a-z]).{4,}" title="Minimum 4 znaki i nie może zawierać samych cyfr.">
+					</div>
+					<div class="form__part">
+						<label for="section_end" class="form__label">Nazwa punktu końcowego</label>
+						<input type="text" name="section_end" class="button form__input" pattern="(?=.*[a-z]).{4,}" title="Minimum 4 znaki i nie może zawierać samych cyfr.">
+					</div>
+					<div class="form__part">
+						<label for="section_group" class="form__label">Grupa górska</label>
+						<select name="section_group" class="button form__input form__select">
+							{% for mountainGroup in mountainGroups %}
+								<option value="{{mountainGroup.idG}}">{{mountainGroup.name}}
+									{{mountainGroup.groupCode}}</option>
+							{% endfor %}
+						</select>
+					</div>
+					<div class="form__part">
+						<label for="section_length" class="form__label">Długość odcinka (w m)</label>
+						<input name="section_length" class="button form__input" type="number" min="0" max="99999">
+
+					</div>
+					<div class="form__part">
+						<label for="section_height" class="form__label">Przewyższenie (w m)</label>
+						<input name="section_height" class="button form__input" type="number" min="0" max="9999">
+
+					</div>
+					<input type="submit" class="button box__button" value="Zapisz odcinek">
+				</form>
+				<form method="POST" action="./createTrail" class="form">
+					<input type="hidden" value="0" name="idS"/>
+					<button class="button box__button" type="submit">Powrót</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+	<script defer src="../public/assets/js/alertCreateOwnSection.js"></script>
+{% endblock %}

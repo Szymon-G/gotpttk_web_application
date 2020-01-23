@@ -1,0 +1,49 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/line.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/findSection.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/addSection.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Przeglądaj odcinki</h3>
+			<form action="./addSection_result" method="POST" class="form">
+				<div class="form__fields">
+					<input type="text" name="sectionName" placeholder="np. Śnieżka" class="button form__input__name">
+					<select name="sectionGroup" class="button form__input__group">
+						<option value="0">Grupa górska ↓</option>
+						{% for mountainGroup in mountainGroups %}
+							<option value="{{mountainGroup.idG}}">{{mountainGroup.name}}
+								{{mountainGroup.groupCode}} </option>
+						{% endfor %}
+					</select>
+				</div>
+				<input type="submit" value="Wyszukaj" class="button form__input__btn">
+			</form>
+			<div class="box">
+				<div class="box__zone">
+					<span class="line"></span>
+					<div class="box__zone__groups">
+						{% for mountainGroup in mountainGroups %}
+							<a href="./addSection_group{{mountainGroup.idG}}" class="box__zone__group">
+								{{mountainGroup.name}}
+								{{mountainGroup.groupCode}}
+							</a>
+						{% endfor %}
+					</div>
+						<span class="line"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}

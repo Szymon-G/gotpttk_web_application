@@ -1,0 +1,63 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/line.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/findSection.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Przeglądaj odcinki</h3>
+			<button class="button form__input__btn">
+				<a href="./findSection" class="link">Powrót</a>
+			</button>
+			<div class="box">
+				<div class="box__zone">
+					<p class="box__zone__name"></p>
+					<span class="line"></span>
+					<div class="box__section">
+						{% if results %}
+							<div class="box__section__result">
+								<div>Punkt końcowy</div>
+								<div>Punkt początkowy</div>
+								<div>Grupa górska</div>
+								<div>Punkty GOT</div>
+							</div>
+							<span class="line"></span>
+							{% for row in results %}
+								<div class="box__section__result">
+									<div>
+										{{row.getEndPointName()}}
+									</div>
+									<div>
+										z
+										{{row.getStartPointName()}}
+									</div>
+									<div>
+										{{row.getMountainGroupName()}}
+										{{row.getMountainGroupCode()}}
+									</div>
+									<div>
+										{{row.pointsGOT}}
+									</div>
+								</div>
+							{% endfor %}
+						{% else %}
+						<p>UPS.. :( </p>
+						<p id = 'error_message'>Niestety żaden z odcinków nie spełnia kryteriów wyszukiwania.</p>
+						<p>Brak szukanego odcinka. Spróbuj ponownie.</p>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}

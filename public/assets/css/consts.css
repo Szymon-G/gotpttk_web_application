@@ -1,6 +1,12 @@
-:root{
+:root {
+  --main_font: 'Didact Gothic',
+  sans-serif;
   --main_color: rgb(10, 162, 152);
-  --main_color_with_alfa: rgba(10, 162, 152, 0.4);
+  --main_color_with_alfa: rgba(10, 162, 152, 0.35);
+  --second_color: rgb(6, 83, 78);
+  --white: #fff;
+  --white_with_alpha: rgba(255, 255, 255, 0.85);
+  --black: #000;
   --header_height: 13vh;
   --footer_height: 12vh;
   --footer_margin: -12vh;

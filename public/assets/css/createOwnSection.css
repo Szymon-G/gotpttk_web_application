@@ -1,0 +1,71 @@
+@import "consts.css";
+
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white_with_alpha);
+  padding-bottom: 10px;
+}
+
+.box__title{
+  color: var(--black);
+  margin-bottom: 0;
+}
+
+.line{
+   margin-bottom: 5%;
+}
+
+.form {
+  width: 85%;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.form__part{
+  display: flex;
+  margin-bottom: 2%;
+}
+
+.form__part:last-of-type {
+  margin-bottom: 5%;
+}
+
+.form__label {
+  color: var(--black);
+  width: 100%;
+}
+
+.form__input {
+  background-color: var(--white);
+  color: var(--black);
+  margin-right: 10%;
+  width: 80%;
+  padding: 1% 2%;
+}
+
+.form__select{
+  text-align-last:center;
+}
+
+.button_back{
+  margin: 2% auto;
+  font-size: .85em;
+}
+
+
+
+

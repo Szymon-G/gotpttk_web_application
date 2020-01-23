@@ -8,13 +8,23 @@
   margin-top: var(--footer_margin);
   bottom: 0;
   width: 100%;
-  padding: 20px 6%;
+  padding: 10px 6%;
   background-color: var(--main_color);
   display: flex;
   justify-content: space-between;
+  align-items: center;
   z-index: 100;
 }
 
-.footer__text *{
+.footer__text{
+  display: flex;
+  align-items: center;
+}
+
+.footer__text__authors{
+  padding-left: 10px;
+}
+
+.footer__text * {
   margin: 0;
 }

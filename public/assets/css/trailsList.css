@@ -1,0 +1,104 @@
+@import "consts.css";
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--white_with_alpha);
+  padding: 1% 0;
+}
+
+.box__nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.box__nav__button{
+  background-color: var(--second_color);
+  padding: 8px 30px;
+}
+
+.box__button{
+  padding: 8px 30px;
+}
+
+.box__trail{
+  width: 100%;  
+  margin-bottom: 1%;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.box__trail__grid{
+  width: 95%;
+  margin: 20px auto;
+  display: grid;
+  grid-template-rows: 1fr;
+  color: var(--black);
+}
+
+.box__trail__row {
+  display: grid;
+  grid-template-columns: 50% 25% 25%;
+  grid-column: 1 / 5;
+  font-size: .8em;
+}
+
+.box__trail__row__empty {
+    height: 12px !important;
+}
+
+.box__trail__row:nth-child(2){
+  padding-top: 10px;
+}
+
+.box__trail__row--header {
+  font-size: .9em;
+  font-weight: bold;
+}
+
+.box__trail__row > div:first-child {
+  justify-self: start;
+  text-align: left;
+}
+
+.box__trail__row__delete_btn:focus{
+  outline: none;
+}
+
+.sum{
+  font-size: 1em;
+  font-weight: bold;
+  justify-self: left;
+  color: black;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 1px;
+  padding-right: 1px;
+}
+
+.box__edit{
+    width: 90%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    color: var(--black);
+  }
+
+  .box__trail__content{
+    color: black;
+  }
+

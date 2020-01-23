@@ -1,0 +1,49 @@
+@import "consts.css";
+
+
+.content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1% 0;
+}
+
+.box{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.log__form{
+  width: 85%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 12px;
+}
+
+.box__button{
+  padding: 10px 50px;
+  margin-top: 8px;
+}
+
+.form__input{
+  border-radius: 20px;
+  padding: 10px 30px;
+}
+
+a.form__err{
+  visibility: hidden;
+  font-weight: bold;
+  padding-top: 4px;
+  color: red;
+  text-shadow: 3px 3px 8px  black;
+}
+
+a.link{
+  margin-top: 20px;
+  color: white;
+}

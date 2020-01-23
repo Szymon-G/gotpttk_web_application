@@ -1,0 +1,101 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/createTrail.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/alert.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	{% if date is not defined %}
+			{% include('alert.html.twig') with {'type':'calendar'} %}
+	{% endif %}
+	<div class="alert_back alert--hidden">
+			{% include('alert.html.twig') with {'type':'alert_back'} %}
+	</div>
+	{% if success is defined %}
+	<div class="alert_success">
+		{% include('alert.html.twig') with {'type':'alert_success'} %}
+	</div>
+	{% endif %}
+	{% if failure is defined %}
+	<div class="alert_failure">
+		{% include('alert.html.twig') with {'type':'alert_failure'} %}
+	</div>
+	{% endif %}
+	{% if noSections is defined %}
+	<div class="alert_no_sections">
+		{% include('alert.html.twig') with {'type':'alert_no_sections'} %}
+	</div>
+	{% endif %}
+	{% if logToSave is defined %}
+	<div class="alert_log_to_save">
+			{% include('alert.html.twig') with {'type':'alert_log_to_save'} %}
+	</div>
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Utwórz trasę</h3>
+			<div class="box">
+				<form class="form" action="./createTrail_save" method="POST">
+					<input type="submit" value="Zapisz" class="button box__button">
+				</form>
+				<form class="box__nav" action="./addSection" method="get">
+					<input class="link button box__nav__button" type="submit" value="Dodaj odcinek z bazy danych"/>
+					<a class="link button box__nav__button" href="./createOwnSection">Dodaj własny odcinek</a>
+				</form>
+				<div class="box__trail">
+					<div class="box__trail__grid">
+						<div class="box__trail__row box__trail__row--header">
+							{% if date is defined or sections is defined %}
+								<div>{{date}}</div>
+							{% else %}
+								<div>Data</div>
+							{% endif %}
+							<div>Punkty</div>
+							<div>Grupa górska</div>
+							<div></div>
+						</div>
+						{% if sections is defined %}
+							{% for key, section in sections %}
+								<div class="box__trail__row">
+									<div>{{section.getStartPointName()}}
+										-
+										{{section.getEndPointName()}}</div>
+									<div>{{section.pointsGOT()}}</div>
+									<div>{{section.getMountainGroupName()}}
+										{{section.getMountainGroupCode()}}</div>
+									<div>
+										<form action="./createTrail" method="POST">
+											<input type="hidden" value={{key}} name="deleteSectionKey"/>
+											<button class="box__trail__row__delete_btn">
+												<div id="cross"></div>
+											</button>
+										</form>
+									</div>
+								</div>
+							{% endfor %}
+							<p class="box__trail__grid__sum">Suma punktów:
+								{% if sumOfPoints is defined %}
+									{{sumOfPoints}}
+								{% endif %}
+							</p>
+						{% else %}
+							<p class="box__trail__content">Ups.. wygląda na to że nie dodałeś jeszcze żadnego odcinka</p>
+						{% endif %}
+					</div>
+				</div>
+				<button id="back_btn" class="link button box__button">Powrót</button>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+	<script defer src="../public/assets/js/alertCreateTrail.js"></script>
+{% endblock %}

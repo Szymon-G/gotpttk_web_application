@@ -105,6 +105,9 @@
     "ocramius/proxy-manager": {
         "version": "2.2.3"
     },
+    "pdepend/pdepend": {
+        "version": "2.6.1"
+    },
     "php": {
         "version": "7.3"
     },

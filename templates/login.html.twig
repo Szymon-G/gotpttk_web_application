@@ -1,0 +1,36 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/login.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{{ include('header.html.twig') }}
+	<div class="container">
+		<div class="content">
+			<div class="box">
+				<form class="log__form" method="post" action='./verifyLogin'>
+					<h3>Podaj login</h3><br>
+					<input type="email" class="form__input" name="email" required value="{{login}}">
+					<a class="form__err" name="emailErr"
+					style="visibility: {% for message in app.flashes('email') %}
+					{{message}}{% endfor %};">Login niepoprawny</a>
+					<h3>Podaj hasło</h3><br>
+					<input type="password" class="form__input" name="password" required/>
+					<a class="form__err" name="passwordErr" 
+					style="visibility: {% for message in app.flashes('password') %}
+					{{message}}{% endfor %};">Hasło niepoprawne</a>
+					<a class="form__err" name="loginError"
+					style="visibility: {% for message in app.flashes('e&p') %}
+					{{message}}{% endfor %};">Należy podać login i hasło</a>
+					<button type="submit" class="button box__button">Zaloguj</button>
+				</form>
+				<a class="link" href='resetPassword'>Zapomniałem hasła
+				</a>
+				<div class="box__route"></div>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}

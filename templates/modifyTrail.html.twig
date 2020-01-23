@@ -1,0 +1,109 @@
+{% extends "index.html.twig" %}
+{% block stylesheets %}
+	<link href="https://fonts.googleapis.com/css?family=Didact+Gothic&display=swap" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/index.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/button.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/modifyTrail.css') }}" rel="stylesheet">
+	<link href="{{ asset('../public/assets/css/alert.css') }}" rel="stylesheet">
+{% endblock %}
+{% block body %}
+	{% if logged %}
+		{{ include('headerTourist.html.twig') }}
+	{% else %}
+		{{ include('header.html.twig') }}
+	{% endif %}
+	<div class="alert_cancel alert--hidden">
+			{% include('alert.html.twig') with {'type':'alert_cancel'} %}
+	</div>
+	{% if success is defined %}
+	<div class="alert_success">
+		{% include('alert.html.twig') with {'type':'alert_success_modify'} %}
+	</div>
+	{% endif %}
+	{% if failure is defined %}
+	<div class="alert_failure">
+		{% include('alert.html.twig') with {'type':'alert_failure'} %}
+	</div>
+	{% endif %}
+	{% if noSections is defined %}
+	<div class="alert_no_sections">
+		{% include('alert.html.twig') with {'type':'alert_no_sections'} %}
+	</div>
+	{% endif %}
+	<div class="container">
+		<div class="content">
+			<h3 class="content__title">Twoja trasa</h3>
+			<div class="box">
+				<form class="box__nav" action="./addSection" method="get">
+					<input class="link button box__nav__button" type="submit" value="Dodaj odcinek z bazy danych"/>
+					<a class="link button box__nav__button" href="./createOwnSection">Dodaj własny odcinek</a>
+				</form>
+				<div class="box__trail">
+					<div class="box__trail__grid">
+						<div class="box__trail__row box__trail__row--header">
+							{% if date is defined or sections is defined %}
+								<div>{{date}}</div>
+							{% else %}
+								<div>Data</div>
+							{% endif %}
+							<div>Punkty</div>
+							<div>Grupa górska</div>
+							<div></div>
+						</div>
+						{% if sections is defined %}
+							{% for key, section in sections %}
+								<div class="box__trail__row">
+									<div>{{section.getStartPointName()}}
+										-
+										{{section.getEndPointName()}}</div>
+									<div>{{section.pointsGOT()}}</div>
+									<div>{{section.getMountainGroupName()}}
+										{{section.getMountainGroupCode()}}</div>
+									<div>
+										<form action="./modifyTrail" method="POST">
+											<input type="hidden" value={{key}} name="deleteSectionKey"/>
+											<button class="box__trail__row__delete_btn">
+												<div id="cross"></div>
+											</button>
+										</form>
+									</div>
+									<div>
+										<form action="./modifyOwnSection" method="POST">
+											<input type="hidden" value={{key}} name="modifySectionKey"/>
+											<input type="hidden" value={{section.getStartPoint().getIdP()}} name="startPoint"/>
+											<input type="hidden" value={{section.getEndPoint().getIdP()}} name="endPoint"/>
+											<input type="hidden" value={{section.getIdS()}} name="idS"/>
+											<input type="hidden" value={{section.getIdG().getIdG()}} name="idG"/>
+											<input type="hidden" value={{section.getSectionLength()}} name="length"/>
+											<input type="hidden" value={{section.getElevationGain()}} name="elevation"/>
+											<button class="box__trail__row__delete_btn"
+											{% if section.getIsOutOfBase() %} style="visibility: visible;" 
+											{% else %} style="visibility: hidden;"
+											{% endif %}>
+												<img src="./assets/img/modifyIcon.png"  width="16" height="16">
+											</button>
+										</form>
+									</div>
+								</div>
+							{% endfor %}
+						{% else %}
+							<p class="box__trail__content">Ups.. wygląda na to, że usunąłeś wszystkie odcinki z trasy</p>
+						{% endif %}
+						<div class="box__trail__row__empty"></div>
+						<div class="box__trail__row">
+							<a class="sum">Suma punktów: {{sumOfPoints}}</a>
+							<form class="form" action="./modifyTrail_save" method="POST">
+								<input type="submit" value="Zapisz zmiany" class="button box__save__button">
+							</form>
+							<button id="cancel_btn" class="link button box__button ">Anuluj zmiany</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{{ include('footer.html.twig') }}
+{% endblock %}
+{% block javascripts %}
+	<script defer src="../public/assets/js/alertModifyTrail.js"></script>
+{% endblock %}
